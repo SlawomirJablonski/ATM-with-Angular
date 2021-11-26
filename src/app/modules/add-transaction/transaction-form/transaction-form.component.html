@@ -1,0 +1,27 @@
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    
+    <label>From Account</label>
+    <input type="text" inputmode="numeric" pattern="[0-9]*" formControlName="fromAccount" />    
+    <app-form-error
+        [displayError]="isControlValid('fromAccount')" 
+        errorMsg="Niepoprawny numer konta, z którego chcesz wysłać przelew">
+    </app-form-error>
+
+
+    <label>To Account</label>
+    <input type="text" inputmode="numeric" pattern="[0-9]*" formControlName="toAccount" />    
+    <app-form-error
+        [displayError]="isControlValid('toAccount')" 
+        errorMsg="Niepoprawny numer konta, na który chcesz wysłać przelew">
+    </app-form-error>
+
+    <label>Amount</label>
+    <input type="text" inputmode="numeric" pattern="[0-9]*" formControlName="amount" />    
+    <app-form-error
+        [displayError]="isControlValid('amount')" 
+        errorMsg="Niepoprawna suma przelewu">
+    </app-form-error>
+
+    <button type="submit" class="btn btn-primary mr-1">Submit
+    </button>
+</form>
